@@ -8,16 +8,51 @@ const routes = [
   {
     path: '/',
     name: 'Home',
+    meta: {layout: "main"},
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/admin',
+    name: 'Admin',
+    meta: {layout: "admin", name: "Все игры"},
+    component: () => import('../views/Admin')
+  },
+  {
+    path: '/admin/games/:id',
+    name: 'currentGame',
+    meta: {layout: "admin", name: ''},
+    component: () => import('../views/CurrentGame')
+  },
+  {
+    path: '/admin/games/create',
+    name: 'createGame',
+    meta: {layout: "admin", name: "Создать игру"},
+    component: () => import('../views/CreateGame')
+  },
+  {
+    path: '/admin/games/create/:id',
+    name: 'addCommand',
+    meta: {layout: "admin", name: "Добавить команду"},
+    component: () => import('../views/AddCommand')
+  },
+  {
+    path: '/admin/games/active',
+    name: 'activeGames',
+    meta: {layout: "admin", name: "Активные игры"},
+    component: () => import('../views/ActiveGames')
+  },
+  {
+    path: '/admin/games/ended',
+    name: 'endedGames',
+    meta: {layout: "admin", name: "Завершенные игры"},
+    component: () => import('../views/EndedGames')
+  },
+  {
+    path: '/admin/games/ended',
+    name: 'endedGames',
+    meta: {layout: "admin", name: "Завершенные игры"},
+    component: () => import('../views/EndedGames')
+  },
 ]
 
 const router = new VueRouter({
