@@ -18,10 +18,14 @@ const routes = [
     component: () => import('../views/Admin')
   },
   {
-    path: '/admin/games/:id',
+    path: '/admin/games/current/:id',
     name: 'currentGame',
-    meta: {layout: "admin", name: ''},
     component: () => import('../views/CurrentGame')
+  },
+  {
+    path: '/admin/games/:id/end',
+    name: 'endGame',
+    component: () => import('../views/EndGame')
   },
   {
     path: '/admin/games/create',
@@ -46,13 +50,7 @@ const routes = [
     name: 'endedGames',
     meta: {layout: "admin", name: "Завершенные игры"},
     component: () => import('../views/EndedGames')
-  },
-  {
-    path: '/admin/games/ended',
-    name: 'endedGames',
-    meta: {layout: "admin", name: "Завершенные игры"},
-    component: () => import('../views/EndedGames')
-  },
+  }
 ]
 
 const router = new VueRouter({

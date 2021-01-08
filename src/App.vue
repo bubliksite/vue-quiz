@@ -10,29 +10,21 @@
 <script>
   import MainLayout from "./layouts/MainLayout"
   import AdminLayout from "./layouts/AdminLayout"
+  import EmptyLayout from "./layouts/EmptyLayout";
   export default {
     computed: {
       layout() {
-        console.log(this.$route.meta)
-        return (this.$route.meta.layout || 'main') + '-layout'
+        return (this.$route.meta.layout || 'empty') + '-layout'
       }
     },
     components: {
       MainLayout,
-      AdminLayout
+      AdminLayout,
+      EmptyLayout
     }
   }
 </script>
 
 <style lang="scss">
-  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap');
-  *{
-    font-family: 'Raleway', sans-serif;
-  }
-  a {
-    text-decoration: none;
-    &:hover {
-      @extend a
-    }
-  }
+
 </style>
